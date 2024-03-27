@@ -1,0 +1,25 @@
+<nav class="Nav-bar">
+    
+    <div class="Nav-bar_info">
+        <img class='Nav-bar_icon' src="/assets/lamp.png">
+        <div>
+            <div class="Nav-bar_info_breadcrumbs">
+                <a [routerLink]="['/home']">HOME</a>
+
+                <ng-container *ngFor="let route of currentRouteUrlArray">
+                    <img class="Nav-bar_info_breadcrumbs_arrow" src="/assets/arrow.svg">
+                    <a routerLinkActive="Active"
+                       [routerLinkActiveOptions]="{exact: true}"
+                       [routerLink]="getClickedRoute(route)">{{route | changeBookIndexToName:isBooksOrShelves | titlecase}}</a>
+                </ng-container>
+                
+            </div>
+            <p class="Nav-bar_info_current-page">{{currentPage| changeBookIndexToName:isBooksOrShelves | uppercase}}</p>
+        </div>
+    </div>
+
+    <div class="Nav-bar_buttons">
+        <button class="Button Button-goBack" [routerLink]="['/']">BACK HOME</button>
+        <button class="Button Button-goBack" (click)="logout()">LOGOUT</button>
+    </div>
+</nav>

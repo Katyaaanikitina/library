@@ -1,0 +1,67 @@
+.Tags
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    width: 100%
+
+    &_hide
+        height: 30px
+        overflow: hidden
+
+    &__show
+        height: fit-content
+
+    &::after
+        content: ""
+        flex: auto
+    
+    &_container
+        margin-top: 0.7em
+        padding: 5px
+        display: flex
+        align-items: start
+
+    &_tag
+        display: inline-block
+        background-color: #EBECF0
+        border-radius: 5px
+        padding: 5px 5px
+        margin-top: 5px
+        margin-right: 2px
+        font-size: 0.6em
+        color: #48494B
+
+        &::before 
+            content: "\e901" 
+            font-family: icomoon
+            font-size: 5px
+            display: inline-block
+            margin-right: 2px
+            color: #bec0bf
+
+        &__active
+            background-color: #017667
+            color: white
+
+    &_buttonArrow
+        cursor: pointer
+
+        &_opened
+            transform: rotate(180deg)
+    
+    &_button-open
+        font-size: 0.9em
+        color: #bec0bf
+
+        &_cover
+            display: flex
+            align-items: center
+            height: 21px
+            margin-top: 5px
+            margin-left: 10px
+            padding: 0 5px
+            background-color: #EBECF0
+            border-radius: 5px
+            cursor: pointer
+
+        

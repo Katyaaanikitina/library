@@ -1,0 +1,29 @@
+<p>Button clicked: {{count | async}} times</p>
+<div class="Books-header">
+    <p class="Books-header_title">КНИГИ</p>
+    <button (click)="showFavorites()">
+        <span class="icon-star-svgrepo-com Books-header_favorite"
+              [ngClass]="{'Books-header_favorite__show': isOnlyFavorite}">
+        </span>
+    </button>
+</div>
+
+<div class="BooksContainer" 
+     [ngClass]="{'BooksContainer_hide': isBooksInMultipleRow}"
+     #booksContainer>
+        <ng-container *ngFor="let book of books | filter:searchValue | filterByTags:chosenTagsArray">
+            <app-book class="Book" 
+                      [book] = 'book' 
+                      id="book"
+                      (click)="openBook(book.id)"
+                      (onFavorite)="booksService.updateFavorites($event, booksService.books)"
+                      (onDeleteBook)="booksService.updateBooks($event, booksService.books, booksService.booksCopy)"></app-book>
+        </ng-container>
+</div>
+<button class="Button Button-show"
+        (click)="openOrCloseBooks()">
+        {{buttonText}}
+        <span class="icon-arrow Button-show_arrow" 
+              [ngClass]="{'Button-show_arrow__close': !isBooksInMultipleRow}">
+        </span>
+</button>

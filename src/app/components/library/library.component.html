@@ -1,0 +1,28 @@
+<div class="Page-content">
+    <app-input (onInput)="updateInputValue($event)"></app-input>
+    <app-tags (onChooseTag)="updateTagsValue($event)"></app-tags>
+</div>
+
+<div class="Page-content">
+    <button class="Button Button-show" (click)="increase()">Increase</button>
+</div>
+
+<div class="Page-content">
+    <ng-container *ngIf="booksService.shelvesObs$| async as shelves">
+        <app-shelves [searchValue]="searchValue"
+                 [chosenTagsArray]="chosenTags"
+                 [count]="count$"
+                 [shelves]="shelves">
+        </app-shelves>
+    </ng-container>
+</div>
+
+<div class="Page-content">
+    <ng-container *ngIf="booksService.booksObs$| async as books">
+        <app-books [searchValue]="searchValue"
+                [chosenTagsArray]="chosenTags"
+                [count]="count$"
+                [books]="books">
+        </app-books>
+    </ng-container>
+</div>

@@ -1,0 +1,28 @@
+<div class="Tags_container">
+    <div class="Tags" [ngClass]="{
+        Tags_hide: isTagsClosed,
+        Tags_show: !isTagsClosed
+        }" #tagsContainerTpl>
+
+        <button *ngIf="isTagsInMultiRow"
+                class ="Tags_buttonArrow" 
+                [ngClass]="{Tags_buttonArrow_opened: !isTagsClosed}"
+                (click)="isTagsClosed = !isTagsClosed"><img src="/assets/arrow.svg">
+        </button>
+
+        <button *ngFor="let tag of tags"
+                class="Tags_tag" 
+                [ngClass]="{'Tags_tag__active': tag.active}"
+                id="{{tag.id}}" 
+                #tags
+                (click)="chooseOrUnchooseTag($event)">
+                {{tag.name}}
+        </button>
+    </div>
+    <button *ngIf="isTagsInMultiRow && isTagsClosed" 
+            class="Tags_button-open_cover"
+            (click)="isTagsClosed = !isTagsClosed">
+            <p class="Tags_button-open">&#183;&#183;&#183;</p>
+    </button>
+</div>
+

@@ -1,1 +1,144 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto')
+
+@font-face 
+  font-family: 'icomoon'
+  src:  url('./assets/fonts/icomoon.eot?fzh4g0')
+  src:  url('./assets/fonts/icomoon.eot?fzh4g0#iefix') format('embedded-opentype'), url('./assets/fonts/icomoon.ttf?fzh4g0') format('truetype'), url('./assets/fonts/icomoon.woff?fzh4g0') format('woff'), url('./assets/fonts/icomoon.svg?fzh4g0#icomoon') format('svg')
+  font-weight: normal
+  font-style: normal
+  font-display: block
+
+
+[class^="icon-"], [class*=" icon-"] 
+    font-family: 'icomoon' !important
+    speak: never
+    font-style: normal
+    font-weight: normal
+    font-variant: normal
+    text-transform: none
+    line-height: 1
+
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+
+.icon-star-svgrepo-com:before 
+    content: "\e903"
+    -webkit-text-stroke: 1px #8ac8e1 
+
+.icon-delete:before 
+    content: "\e902"
+
+.icon-shelves:before 
+    content: "\e904"
+
+.icon-books:before 
+    content: "\e905"
+
+.icon-hash:before 
+    content: "\e901"
+    color: #bebebe
+
+.icon-arrow:before 
+    content: "\e900"
+  
+* 
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+button, input, p, a
+    all: unset
+
+button, a
+    cursor: pointer
+
+body 
+    font-family: 'Roboto', sans-serif
+    background-color: #F2F3F4
+
+hr
+    height: 1px
+    background-color: #EBECF0
+    border: none
+
+.Container
+    height: 100%
+    margin: 0 auto
+    padding: 0 20px
+
+.Page-content
+    width: 100%
+    background-color: #fff
+    height: 100%
+    border-radius: 10px
+    padding: 1.5em 2em
+    margin-bottom: 10px
+
+.Light-grey
+    color: #bec0bf
+
+.Wrap
+    word-wrap: break-word
+
+.Button
+    border-radius: 5px
+    height: fit-content
+    color: #48494B
+
+.Button-goBack
+    width: fit-content
+    max-height: 30px
+    box-sizing: border-box
+    white-space: nowrap
+    border: solid 1px #48494B
+    font-size: 0.9em
+    padding: 6px 22px
+    font-weight: bold
+    letter-spacing: 0.1em
+
+    &:hover
+        box-shadow: 1px 1px 2px #bec0bf
+
+.Button-show
+    display: block
+    margin: 0 auto
+    font-size: 0.7em
+    padding: 5px 10px
+    border: solid 1px #EBECF0
+    font-weight: normal
+    letter-spacing: 0
+    box-shadow: 1px 1px 4px #EBECF0
+
+    &_arrow
+        display: inline-block
+        margin-left: 3px
+
+        &__close
+            transform: rotate(180deg)
+            
+.Button-log
+    border: solid 1px #EBECF0
+    padding: 5px 20px
+    background-color: #F2F3F4
+
+    &:hover
+        box-shadow: 1px 1px 2px #bec0bf
+        
+    &:disabled
+        cursor: not-allowed
+        opacity: 30%
+
+.BooksContainer
+    display: flex
+    gap: 24px
+    flex-wrap: wrap
+    justify-content: start
+    padding: 0 30px
+    overflow: hidden
+
+    &_hide
+        height: 340px
+
+.Book
+    margin-bottom: 18px

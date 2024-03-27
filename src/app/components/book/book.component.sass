@@ -1,0 +1,107 @@
+.Book
+    border: solid 1px #EBECF0
+    width: 200px
+    height: fit-content
+    border-radius: 15px
+    padding: 8px
+    cursor: pointer
+
+    &_img
+        border-radius: 10px
+
+        &__container
+            height: 200px
+            display: flex
+            align-items: center
+            justify-content: center
+
+    &_controls
+        width: 18%
+        display: flex
+        justify-content: space-between
+        margin: 5px
+
+        &_star
+            font-size: 12px
+            color:  transparent 
+
+        &_bin
+            color: #999999
+            font-size: 12px
+    
+    &_title
+        display: inline-block
+        color: #48494B
+        font-size: .75em
+        margin-top: 5px
+    
+    &_date-price
+        display: flex
+        justify-content: space-between
+        color: black
+        font-size: .75em
+        margin-bottom: 5px
+    
+    &_description
+        color: #48494B
+        font-size: .65em
+        display: block
+        margin-bottom: 5px
+        
+.Favorite
+    color: #8ac8e1 
+
+.Tags
+    display: flex
+    justify-content: start
+    flex-wrap: wrap
+    width: 100%
+
+    &_hide
+        height: 15px
+        overflow: hidden
+
+    &__show
+        height: fit-content
+
+    &::after
+        content: ""
+        flex: auto
+    
+    &_container
+        display: flex
+        align-items: start
+
+    &_tag
+        display: inline-block
+        background-color: #EBECF0
+        border-radius: 3px
+        padding: 2px 2px
+        margin-right: 2px
+        margin-bottom: 2px
+        font-size: 0.5em
+        color: #48494B
+        height: fit-content
+
+        &::before 
+            content: "\e901" 
+            font-family: icomoon
+            font-size: 5px
+            display: inline-block
+            margin-right: 2px
+            color: #bec0bf
+
+    &_button-open
+        font-size: 0.7em
+        color: #bec0bf
+
+        &_cover
+            display: flex
+            align-items: center
+            height: 15px
+            width: 10px
+            padding: 0 2px
+            margin-left: 5px
+            background-color: #EBECF0
+            border-radius: 3px
+            cursor: pointer
