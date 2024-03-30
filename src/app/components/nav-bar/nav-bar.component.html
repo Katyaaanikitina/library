@@ -1,8 +1,11 @@
 <nav class="Nav-bar">
     
     <div class="Nav-bar_info">
-        <img class='Nav-bar_icon' src="/assets/lamp.png">
-        <ng-container>
+        <div class='Nav-bar_icon_container'>
+            <img class='Nav-bar_icon' src="/assets/lamp.png" [routerLink]="['/']">
+        </div>
+
+        <div *ngIf="isLogged">
             <div class="Nav-bar_info_breadcrumbs">
                 <a [routerLink]="['/home']">HOME</a>
 
@@ -14,11 +17,16 @@
                 </ng-container>
             </div>
             <p class="Nav-bar_info_current-page">{{currentPage| changeBookIndexToName:isBooksOrShelves | uppercase}}</p>
-        </ng-container>
+        </div>
     </div>
 
-    <div class="Nav-bar_buttons">
+    <div *ngIf="isLogged" class="Nav-bar_buttons">
         <button class="Button Button-goBack" [routerLink]="['/']">BACK HOME</button>
         <button class="Button Button-goBack" (click)="logout()">LOGOUT</button>
+    </div>
+
+    <div *ngIf="!isLogged" class="Nav-bar_buttons">
+        <button class="Button Button-goBack">SIGN UP</button>
+        <button class="Button Button-goBack" [routerLink]="['/login']">LOG IN</button>
     </div>
 </nav>

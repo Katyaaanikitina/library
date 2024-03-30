@@ -1,7 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router, RoutesRecognized } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { BooksService } from '../../shared/services/books.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -14,11 +13,11 @@ export class NavBarComponent implements OnInit, OnDestroy {
   currentPage!: string;
   currentRouteUrlArray!: string[];
   routeSub!: Subscription;
+  isLogged = false;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private userService: UserService) { 
-              }
+              private userService: UserService) { }
 
   ngOnInit(): void {
     this.routeSub = this.router.events.subscribe((event) => {
@@ -32,7 +31,9 @@ export class NavBarComponent implements OnInit, OnDestroy {
         const currentRoute = this.route.firstChild?.snapshot;
         this.isBooksOrShelves = currentRoute?.data['isBooskOrShelves'];
       }
-    }) 
+    });
+
+    this.userService.isLogged$.subscribe(isLogged => this.isLogged = isLogged);
   }
 
   ngOnDestroy(): void {
