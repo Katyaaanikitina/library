@@ -2,7 +2,7 @@
     
     <div class="Nav-bar_info">
         <img class='Nav-bar_icon' src="/assets/lamp.png">
-        <div>
+        <ng-container>
             <div class="Nav-bar_info_breadcrumbs">
                 <a [routerLink]="['/home']">HOME</a>
 
@@ -12,10 +12,9 @@
                        [routerLinkActiveOptions]="{exact: true}"
                        [routerLink]="getClickedRoute(route)">{{route | changeBookIndexToName:isBooksOrShelves | titlecase}}</a>
                 </ng-container>
-                
             </div>
             <p class="Nav-bar_info_current-page">{{currentPage| changeBookIndexToName:isBooksOrShelves | uppercase}}</p>
-        </div>
+        </ng-container>
     </div>
 
     <div class="Nav-bar_buttons">

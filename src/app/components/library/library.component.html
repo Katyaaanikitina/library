@@ -4,10 +4,6 @@
 </div>
 
 <div class="Page-content">
-    <button class="Button Button-show" (click)="increase()">Increase</button>
-</div>
-
-<div class="Page-content">
     <ng-container *ngIf="booksService.shelvesObs$| async as shelves">
         <app-shelves [searchValue]="searchValue"
                  [chosenTagsArray]="chosenTags"
