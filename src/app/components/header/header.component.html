@@ -1,6 +1,6 @@
 <div class="Header">
-    <div class="User" *ngIf="isLogged">
-        <p>{{userService.user.name}}</p>
-        <div class="User_icon">{{userService.user.name[0]}}</div>
+    <div class="User" *ngIf="userService.isLogged()">
+        <p>{{user.name}}</p>
+        <div class="User_icon">{{user.name[0]}}</div>
     </div>
 </div>

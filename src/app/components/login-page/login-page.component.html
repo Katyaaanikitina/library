@@ -1,32 +1,29 @@
-<form class="Form-login" [formGroup]="form" (ngSubmit)="submit()">
-    <div class="Form-login_control" [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}">
-        <label for="email">Email:</label>
-        <br>
-        <input id="email" type="email" formControlName="email">
-        <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
-            <small *ngIf="form.get('email')?.errors?.['required']">Email is required!</small>
-            <small *ngIf="form.get('email')?.errors?.['email']">Write correct email</small>
-        </div>
-    </div>
+<div class="Login-page_container">
+    <p class="Text">Please, provide some information to improve your experience and access all books and movies</p>
 
-    <div class="Form-login_control" [ngClass]="{invalid: form.get('password')?.touched && form.get('password')?.invalid}">
-        <label for="password">Password:</label>
-        <br>
-        <input id="password" type="password" formControlName="password">
-        <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
-            <small class="Wrap" *ngIf="form.get('password')?.errors?.['required']">Password is required!</small>
-            <small *ngIf="form.get('password')?.errors?.['minlength']">
-                Password should be at least {{form.get('password')?.errors?.['minlength']?.['requiredLength']}} symbols!
-            </small>
+    <form class="Form-login" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="Form-login_control" [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}">
+            <label for="email">Email:</label>
+            <br>
+            <input id="email" type="email" formControlName="email">
+            <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+                <small *ngIf="form.get('email')?.errors?.['required']">Email is required!</small>
+                <small *ngIf="form.get('email')?.errors?.['email']">Write correct email, please</small>
+            </div>
         </div>
-    </div>
 
-    <button 
-        class="Button Button-log"
-        type="submit" 
-        [disabled]="form.invalid">
-        LOGIN
-    </button>
-    <div class="Form-login_notAuth" *ngIf="notAuthorizedMessage">{{notAuthorizedMessage}}</div>
-</form>
+        <div class="Form-login_control" [ngClass]="{invalid: form.get('name')?.touched && form.get('name')?.invalid}">
+            <label for="name">Name:</label>
+            <br>
+            <input id="name" formControlName="name">
+            <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+                <small *ngIf="form.get('name')?.errors?.['required']">Name is required!</small>
+            </div>
+        </div>
+
+        <button class="Button Button-log Submit" [disabled]="form.invalid" (click)="submit()">SUBMIT</button>
+        <button class="Button Button-log Submit" (click)="submit()">LOG IN WITHOUT INFO</button>
+    </form>
+</div>
+
 

@@ -16,13 +16,14 @@ export interface Book {
 }
 
 export interface Credentials {
-    email: any;
-    password: any;
+    email: string,
+    name: string,
+    isDataProvided: boolean
 }
 
 export interface User {
-    name: string;
-    email: string;
-    token: string;
-    admin: boolean;
+    name: string,
+    email: string,
+    token: string,
+    isDataProvided: boolean
 }

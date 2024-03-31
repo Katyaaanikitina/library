@@ -13,8 +13,6 @@ import { Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   form!: FormGroup;
   notAuthorizedMessage!: string | null;
-  loginSub!: Subscription;
-  isLoggedSub! : Subscription;
 
   constructor(private userService: UserService,
               private router: Router) { }
@@ -22,59 +20,28 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(8)])
+      name: new FormControl(null, [Validators.required])
     })
 
-    this.isLoggedSub = this.userService.isLogged$.subscribe(isLogged => {
-      if (!isLogged) this.router.navigate(['/login'])
-    })    
+    if (!this.userService.isLogged()) this.router.navigate(['/login']);
   }
 
   submit() {
-    if(this.form.invalid) {
-      return;
-    }
-
-    const credentials: Credentials = {
-      email: this.form.value.email,
-      password: this.form.value.password
-    }
-
-    const userData = this.userService.login(credentials)
-    .pipe(
-      tap((data) => {
-        if (!(typeof data === 'string')) {
-          this.userService.setCurrentUser(data);
-          this.userService.setToken(data.token);
-        } else {
-          this.notAuthorizedMessage = data;
-          setTimeout(() => this.notAuthorizedMessage = null ,4000)
-        }
-      })
-    )
-
-    this.loginSub = userData.subscribe((data: User | string) => {
-      if (!(typeof data === 'string')) {
-        switch (data.admin) {
-          case true: this.router.navigate(['/library-admin'])
-          break;
-          case false: this.router.navigate(['/library-user'])
-          break;
-        }
-        this.userService.isLogged$.next(true);
+    if (this.form.invalid) {
+      this.userService.setUser();
+      this.router.navigate(['/library-user']);
+      
+    } else {
+      const credentials: Credentials = {
+        email: this.form.value.email,
+        name: this.form.value.name,
+        isDataProvided: true
       }
-    })
 
-    setTimeout(() => {
-       localStorage.removeItem('token');
-       this.userService.isLogged$.next(false);
-    }, 5 * 60 * 1000)
+      this.userService.setUser(credentials);
+      this.router.navigate(['/library-admin']);
+    }
 
     this.form.reset();
-  }
-
-  ngOnDestroy() {
-    this.isLoggedSub.unsubscribe();
-    if (this.loginSub) this.loginSub.unsubscribe();
   }
 }

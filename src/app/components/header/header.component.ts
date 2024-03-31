@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { User } from 'src/app/shared/interfaces';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -8,16 +9,13 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
-  isLogged!: boolean;
-  isLoggedSub!: Subscription;
+  user!: User;
 
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.isLogged$.subscribe(isLogged => this.isLogged = isLogged)
-  }
-
-  ngOnDestroy() {
-    this.isLoggedSub.unsubscribe();
+    this.user = this.userService.getUser();
+    console.log(this.user);
+    
   }
 }

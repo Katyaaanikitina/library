@@ -9,7 +9,7 @@ export class IsLogged implements CanActivate {
         route: ActivatedRouteSnapshot, 
         state: RouterStateSnapshot
     ): boolean {
-        if (localStorage.getItem('token')) {
+        if (localStorage.getItem('user')) {
             return true;
         } else {
             this.router.navigate(['/login']);

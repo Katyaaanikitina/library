@@ -13,11 +13,10 @@ export class NavBarComponent implements OnInit, OnDestroy {
   currentPage!: string;
   currentRouteUrlArray!: string[];
   routeSub!: Subscription;
-  isLogged = false;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private userService: UserService) { }
+              public userService: UserService) { }
 
   ngOnInit(): void {
     this.routeSub = this.router.events.subscribe((event) => {
@@ -32,8 +31,6 @@ export class NavBarComponent implements OnInit, OnDestroy {
         this.isBooksOrShelves = currentRoute?.data['isBooskOrShelves'];
       }
     });
-
-    this.userService.isLogged$.subscribe(isLogged => this.isLogged = isLogged);
   }
 
   ngOnDestroy(): void {
@@ -53,8 +50,8 @@ export class NavBarComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('isDataProvided');
     this.router.navigate(['/login']);
-    this.userService.isLogged$.next(false);
   }
 }
