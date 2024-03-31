@@ -1,4 +1,8 @@
 <div class="Page-content Unavailable">
-    <p class="Title">Книга не доступна 18+</p>
-    <button [routerLink]="[previousRouteUrl]" class="Button Button-goBack">BACK</button>
+    <p class="Title">Please login in to access</p>
+
+    <div class="Unavailable_buttons">
+        <button class="Button Button-goBack" [routerLink]="['/login']">LOG IN</button>
+        <button [routerLink]="[previousRouteUrl]" class="Button Button-goBack">BACK</button>
+    </div>
 </div>

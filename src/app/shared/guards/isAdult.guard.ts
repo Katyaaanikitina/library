@@ -18,7 +18,7 @@ export class IsAdultGuard implements CanActivate{
         const book = this.booksService.getBookById(isShelvesOrBooks, Number(bookId));
         const isForAdults = book.forAdults;
         
-        if (isForAdults) {
+        if (isForAdults && localStorage.getItem('isDataProvided') === 'false') {
             this.router.navigate(['/library/unavailable']);
             return false;
         } else {
