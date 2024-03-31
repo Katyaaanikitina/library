@@ -21,7 +21,7 @@
     </div>
 
     <div class="Nav-bar_buttons">
-        <button *ngIf="currentPage !== 'Home'" class="Button Button-goBack" [routerLink]="['/']">BACK HOME</button>
+        <button class="Button Button-goBack" [routerLink]="['/']">BACK HOME</button>
         <button *ngIf="userService.isLogged()" class="Button Button-goBack" (click)="logout()">LOGOUT</button>
     </div>
 </nav>

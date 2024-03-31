@@ -6,18 +6,26 @@ import { Credentials, User } from '../interfaces';
   providedIn: 'root'
 })
 export class UserService {
+  user$ = new Subject<User|null>();
   constructor() { }
 
   setUser(credentials?: Credentials): void {
-    (credentials) ? localStorage.setItem('user', JSON.stringify(credentials))
-                  : localStorage.setItem('user', JSON.stringify({isDataProvided: false}));
+    if (credentials) {
+      localStorage.setItem('name', credentials.name);
+      localStorage.setItem('email', credentials.email);
+      localStorage.setItem('isDataProvided', 'true');
+    } else {
+      localStorage.setItem('isDataProvided', 'false');
+    }
   }
 
   isLogged(): boolean {
-    return (localStorage.getItem('user')) ? true : false;
+    return (localStorage.getItem('isDataProvided')) ? true : false;
   }
 
-  getUser(): any {
-    if (this.isLogged()) return localStorage.getItem('user');
+  getUser(): void {
+    if (this.isLogged()) {
+      this.user$.next({name: localStorage.getItem('name'), email: localStorage.getItem('email')});
+    };
   }
 }

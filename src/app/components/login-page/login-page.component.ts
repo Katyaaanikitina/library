@@ -39,6 +39,7 @@ export class LoginPageComponent implements OnInit {
       }
 
       this.userService.setUser(credentials);
+      this.userService.getUser();
       this.router.navigate(['/library-admin']);
     }
 

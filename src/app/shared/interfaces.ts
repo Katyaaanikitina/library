@@ -22,8 +22,6 @@ export interface Credentials {
 }
 
 export interface User {
-    name: string,
-    email: string,
-    token: string,
-    isDataProvided: boolean
+    name: string | null
+    email: string | null
 }

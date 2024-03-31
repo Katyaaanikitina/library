@@ -1,5 +1,5 @@
 <div class="Login-page_container">
-    <p class="Text">Please, provide some information to improve your experience and access all books and movies</p>
+    <p class="Text">Please, provide information to improve your experience and access all books and movies</p>
 
     <form class="Form-login" [formGroup]="form" (ngSubmit)="submit()">
         <div class="Form-login_control" [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}">

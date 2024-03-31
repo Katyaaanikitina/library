@@ -50,8 +50,10 @@ export class NavBarComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    localStorage.removeItem('user');
+    localStorage.removeItem('name');
+    localStorage.removeItem('email');
     localStorage.removeItem('isDataProvided');
+    this.userService.user$.next(null);
     this.router.navigate(['/login']);
   }
 }
