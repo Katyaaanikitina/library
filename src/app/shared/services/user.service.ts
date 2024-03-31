@@ -6,7 +6,7 @@ import { Credentials, User } from '../interfaces';
   providedIn: 'root'
 })
 export class UserService {
-  user$ = new Subject<User|null>();
+  user$ = new BehaviorSubject<User|null>(null);
   constructor() { }
 
   setUser(credentials?: Credentials): void {
