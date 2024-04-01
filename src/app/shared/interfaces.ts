@@ -12,7 +12,7 @@ export interface Book {
     src: string,
     favorite: boolean,
     date: string,
-    forAdults: boolean
+    isRequireLogin: boolean
 }
 
 export interface Credentials {

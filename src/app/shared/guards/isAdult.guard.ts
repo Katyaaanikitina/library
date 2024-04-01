@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { BooksService } from "../services/books.service";
 
 @Injectable({providedIn: 'root'})
-export class IsAdultGuard implements CanActivate{
+export class IsRequireLoginGuard implements CanActivate{
 
     constructor(private router: Router,
                 private booksService: BooksService) {}
@@ -16,9 +16,9 @@ export class IsAdultGuard implements CanActivate{
         const bookId = state.url.split('/').pop();
         const isShelvesOrBooks = route.routeConfig?.data?.['isBooskOrShelves'];
         const book = this.booksService.getBookById(isShelvesOrBooks, Number(bookId));
-        const isForAdults = book.forAdults;
+        const isRequireLogin = book.isRequireLogin;
         
-        if (isForAdults && localStorage.getItem('isDataProvided') === 'false') {
+        if (isRequireLogin && localStorage.getItem('isDataProvided') === 'false') {
             this.router.navigate(['/library/unavailable']);
             return false;
         } else {
