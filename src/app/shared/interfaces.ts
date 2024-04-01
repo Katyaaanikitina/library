@@ -12,7 +12,8 @@ export interface Book {
     src: string,
     favorite: boolean,
     date: string,
-    isRequireLogin: boolean
+    isRequireLogin: boolean,
+    link: string
 }
 
 export interface Credentials {
