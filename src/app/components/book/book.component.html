@@ -10,6 +10,11 @@
                 </span>
         </button>
         <button (click)="deleteBook($event)"><span class="icon-delete Book_controls_bin"></span></button>
+        <a class="Book_controls_link" 
+            [href]="book.link"
+            (click)="openInShop($event)">
+            Open in shop
+        </a>
     </div>
 
     <hr>
@@ -19,7 +24,7 @@
         <p>{{book.date | date:'dd.MM.yyy'}}</p>
         <p>{{price | currency}}</p>
     </div>
-    <p class="Book_description">{{bookDescription |changeSecondWordToStars}}</p>
+    <p class="Book_description">{{book.description}}</p>
 
     <div class="Tags_container">
         <div class="Tags" [ngClass]="{

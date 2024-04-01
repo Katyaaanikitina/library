@@ -19,10 +19,13 @@
                       (onDeleteBook)="booksService.updateBooks($event, booksService.books, booksService.booksCopy)"></app-book>
         </ng-container>
 </div>
-<button class="Button Button-show"
-        (click)="openOrCloseBooks()">
-        {{buttonText}}
-        <span class="icon-arrow Button-show_arrow" 
-              [ngClass]="{'Button-show_arrow__close': !isBooksInMultipleRow}">
-        </span>
-</button>
+
+<div class="Center-container">
+    <button class="Button Button-show"
+            (click)="openOrCloseBooks()">
+            {{buttonText}}
+            <span class="icon-arrow Button-show_arrow" 
+                  [ngClass]="{'Button-show_arrow__close': !isBooksInMultipleRow}">
+            </span>
+    </button>
+</div>

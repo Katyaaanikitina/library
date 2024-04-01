@@ -64,6 +64,10 @@ export class BookComponent implements OnInit {
     event.stopPropagation();
   }
 
+  openInShop(event: any): void {
+    event.stopPropagation();
+  }
+
   openTags(event: any): void {
     this.isTagsClosed = !this.isTagsClosed;
     event.stopPropagation();

@@ -1,24 +1,29 @@
 .Book
     border: solid 1px #EBECF0
     width: 200px
+    min-height: 336px
     height: fit-content
     border-radius: 15px
     padding: 8px
     cursor: pointer
 
+    &:hover
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
+
     &_img
         border-radius: 10px
 
         &__container
-            height: 200px
+            height: 190px
             display: flex
             align-items: center
             justify-content: center
 
     &_controls
-        width: 18%
         display: flex
-        justify-content: space-between
+        gap: 6px
+        justify-content: start
+        align-items: end
         margin: 5px
 
         &_star
@@ -28,12 +33,20 @@
         &_bin
             color: #999999
             font-size: 12px
+
+        &_link
+            color: #48494B
+            font-size: .75em
+
+            &:hover
+                text-decoration: underline
     
     &_title
         display: inline-block
         color: #48494B
-        font-size: .75em
+        font-size: .85em
         margin-top: 5px
+        margin-bottom: 5px
     
     &_date-price
         display: flex
@@ -43,9 +56,13 @@
         margin-bottom: 5px
     
     &_description
+        display: -webkit-box
+        -webkit-line-clamp: 3
+        -webkit-box-orient: vertical
+        overflow: hidden
+        text-overflow: ellipsis
         color: #48494B
         font-size: .65em
-        display: block
         margin-bottom: 5px
         
 .Favorite
