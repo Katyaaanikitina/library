@@ -6,6 +6,10 @@
             <div class="Detail-book_tags">
                 <p class="Detail-book_tags_tag" *ngFor="let tag of bookTags">{{tag}}</p>
             </div>
+            <p class="Detail-book_description">{{book.description}}</p>
+            <div class="Center-container">
+                <a class="Button Button-goBack Detail-book_link" [href]="book.link">Open in shop</a>
+            </div>
         </div>
     </div>
 </div>
