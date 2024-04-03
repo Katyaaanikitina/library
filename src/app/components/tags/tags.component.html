@@ -7,7 +7,7 @@
         <button *ngIf="isTagsInMultiRow"
                 class ="Tags_buttonArrow" 
                 [ngClass]="{Tags_buttonArrow_opened: !isTagsClosed}"
-                (click)="isTagsClosed = !isTagsClosed"><img src="/assets/arrow.svg">
+                (click)="isTagsClosed = !isTagsClosed"><img src="https://cdn.iconscout.com/icon/free/png-256/free-down-arrow-2693184-2234867.png">
         </button>
 
         <button *ngFor="let tag of tags"

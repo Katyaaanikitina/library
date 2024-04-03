@@ -1,9 +1,8 @@
 <nav class="Nav-bar">
     
     <div class="Nav-bar_info">
-        <div class='Nav-bar_icon_container'>
-            <img class='Nav-bar_icon' src="/assets/lamp.png" [routerLink]="['/']">
-        </div>
+        <img class='Nav-bar_icon' src="https://cdn.iconscout.com/icon/free/png-256/free-lamp-2021445-1709384.png" [routerLink]="['/']">
+
 
         <div *ngIf="userService.isLogged()">
             <div class="Nav-bar_info_breadcrumbs">
