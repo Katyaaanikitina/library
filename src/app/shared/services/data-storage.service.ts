@@ -33,7 +33,7 @@ export class DataStorageService {
     { id: 23, active: false,  name: 'Historical film', timesUsed: 0 },
     { id: 24, active: false,  name: 'Mystery', timesUsed: 0 },
     { id: 25, active: false,  name: 'Historical Fiction', timesUsed: 0 },
-    { id: 26, active: false,  name: 'Children\'s film', timesUsed: 0 },
+    { id: 26, active: false,  name: 'Children\'s', timesUsed: 0 },
     { id: 27, active: false,  name: 'Dance film', timesUsed: 0 },
     { id: 28, active: false,  name: 'Biographical', timesUsed: 0 },
     { id: 29, active: false,  name: 'Teen', timesUsed: 0 },

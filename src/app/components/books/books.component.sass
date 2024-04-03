@@ -2,9 +2,15 @@
     display: flex
     justify-content: space-between
 
+    @media screen and (max-width: 499px)
+        align-items: flex-start
+
     &_title
         font-weight: bold
         margin-bottom: 40px
+
+        @media screen and (max-width: 499px)
+            margin-bottom: 8px
 
         &::before
             content: "\e905" 

@@ -7,6 +7,10 @@
     padding: 8px
     cursor: pointer
 
+    @media screen and (max-width: 499px)
+        width: 156px
+        min-height: 254px
+
     &:hover
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
 
@@ -18,6 +22,9 @@
             display: flex
             align-items: center
             justify-content: center
+
+            @media screen and (max-width: 499px)
+                height: 100px
 
     &_controls
         display: flex

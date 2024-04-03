@@ -15,10 +15,16 @@
         justify-content: start
         gap: 10px
 
+        @media screen and (max-width: 499px)
+            flex-direction: column
+
     &_img
         border-radius: 10px
         max-height: 300px
         max-width: 300px
+
+        @media screen and (max-width: 499px)
+            align-self: center
 
     &_date
         font-size: 20px

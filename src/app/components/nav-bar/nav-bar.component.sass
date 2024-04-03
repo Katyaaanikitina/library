@@ -4,9 +4,18 @@
     align-items: center
     margin: 2em 0
 
+    @media screen and (max-width: 499px)
+        flex-direction: column
+        margin: 1em 0
+
     &_info
         display: flex
         align-items: center
+
+        @media screen and (max-width: 499px)
+            align-self: start
+            margin-bottom: 6px
+
 
         &_breadcrumbs
             width: fit-content
@@ -32,13 +41,21 @@
         margin-right: 15px
         cursor: pointer
 
+        @media screen and (max-width: 499px)
+            width: 30px
+            height: 30px
+
         &:hover 
-            width: 44px
-            height: 44px
+            width: 34px
+            height: 34px
+        
+        @media screen and (max-width: 499px)
         
         &_container
-            width: 44px
-            height: 44px
+            width: 34px
+            height: 34px
+        
+        @media screen and (max-width: 499px)
     
     &_buttons
         width: fit-content
